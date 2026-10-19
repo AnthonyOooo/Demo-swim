@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Индивидуальные занятия по плаванию 🏊</title>
+<style>
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;font-family:-apple-system,"Segoe UI",Roboto,sans-serif;color:#fff;background:#04304f}
+body{background:linear-gradient(#35c4e8 0%,#1a8fd0 35%,#0b5a9c 70%,#06304f 100%)}
+.rays{position:fixed;inset:-20% -10% 30%;background:repeating-linear-gradient(105deg,transparent 0 60px,rgba(255,255,255,.09) 60px 100px,transparent 100px 170px);filter:blur(14px);animation:ray 12s ease-in-out infinite alternate;pointer-events:none}
+@keyframes ray{to{transform:translateX(80px) skewX(8deg);opacity:.5}}
+.bub{position:fixed;bottom:-30px;border-radius:50%;border:2px solid rgba(255,255,255,.6);background:rgba(255,255,255,.15);animation:bu linear infinite;pointer-events:none}
+@keyframes bu{to{transform:translate(20px,-115vh)}}
+.waves{position:fixed;left:0;right:0;bottom:0;height:22vh;pointer-events:none;z-index:1}
+.waves svg{position:absolute;bottom:0;width:200%;height:100%;animation:w 10s linear infinite}
+.waves svg:nth-child(2){animation-duration:16s;animation-direction:reverse;height:80%}
+.waves svg:nth-child(3){animation-duration:7s;height:55%}
+@keyframes w{to{transform:translateX(-50%)}}
+.lane{position:fixed;top:max(12px,env(safe-area-inset-top));left:16px;right:16px;height:34px;z-index:5}
+.lane:before{content:"";position:absolute;left:0;right:0;top:26px;height:4px;border-radius:2px;background:repeating-linear-gradient(90deg,#fff8 0 14px,transparent 14px 24px)}
+#sw{position:absolute;top:-2px;width:64px;left:0;transition:left .9s cubic-bezier(.5,0,.2,1)}
+.s{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:14px;padding:max(58px,calc(env(safe-area-inset-top) + 50px)) 20px 24vh;text-align:center;opacity:0;visibility:hidden;transform:translateY(24px);transition:.6s;overflow:auto;z-index:2}
+.s.on{opacity:1;visibility:visible;transform:none}
+.s>:first-child{margin-top:auto}.s>:last-child{margin-bottom:auto}
+h1{font-size:clamp(28px,8vw,44px);line-height:1.1;text-shadow:0 3px 16px rgba(0,40,80,.5)}
+h2{font-size:clamp(22px,6vw,32px);line-height:1.2;text-shadow:0 2px 12px rgba(0,40,80,.5)}
+p{max-width:420px;opacity:.95}
+.tag{font-size:13px;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+.opts{display:grid;gap:10px;width:100%;max-width:440px}.two{grid-template-columns:1fr 1fr}
+.opt,.btn{border:2px solid rgba(255,255,255,.55);background:rgba(255,255,255,.16);backdrop-filter:blur(8px);color:#fff;font:inherit;font-size:16px;padding:14px 10px;border-radius:16px;cursor:pointer;transition:.2s}
+.opt small{display:block;opacity:.8;font-size:12px;margin-top:2px}
+.opt.sel{background:#fff;color:#0b6fb8;border-color:#fff;transform:scale(1.04);font-weight:700}
+.btn{background:linear-gradient(135deg,#ffcf3f,#ff8a3d);border:none;color:#3a1c00;font-weight:800;font-size:17px;padding:15px 36px;box-shadow:0 8px 24px rgba(255,140,40,.5)}
+.btn:disabled{opacity:.4}.btn.alt{background:rgba(255,255,255,.2);color:#fff;border:2px solid #fff8;box-shadow:none}
+input,textarea{width:100%;max-width:440px;padding:14px;border-radius:14px;border:none;font:inherit;font-size:16px;color:#123}
+.lbl{font-size:14px;opacity:.9;width:100%;max-width:440px;text-align:left}
+.sum{background:rgba(255,255,255,.18);backdrop-filter:blur(10px);border-radius:18px;padding:16px;text-align:left;width:100%;max-width:440px;line-height:1.7}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.hero{width:min(88vw,380px);filter:drop-shadow(0 14px 18px rgba(0,30,60,.4))}
+.hero svg{width:100%;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-1.5deg)}}
+.arm{animation:spin .9s linear infinite;transform-origin:125px 46px}.arm.b{animation-delay:-.45s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.leg{animation:kick .25s ease-in-out infinite alternate;transform-origin:56px 48px}.leg.b{animation-delay:-.125s}
+@keyframes kick{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+</style></head><body>
+<div class="rays"></div>
+<div class="lane"><div id="sw"></div></div>
+<div class="waves">
+<svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path fill="#0a7cc0" fill-opacity=".55" d="M0 40C100 0 200 80 300 40S500 0 600 40s200 40 300 0 200-40 300 0v60H0z"/></svg>
+<svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path fill="#2aa8e0" fill-opacity=".6" d="M0 55C100 85 200 25 300 55S500 85 600 55s200-30 300 0 200 30 300 0v45H0z"/></svg>
+<svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path fill="#bfeeff" fill-opacity=".55" d="M0 60C100 30 200 90 300 60S500 30 600 60s200 30 300 0 200-30 300 0v40H0z"/></svg>
+</div>
+
+<section class="s">
+<div class="tag">Индивидуальные занятия</div>
+<div class="hero sw"></div>
+<h1>Научу плавать<br>красиво и уверенно 🌊</h1>
+<p>Запишись на персональную тренировку в бассейне: подберём уровень, цель и удобное время.</p>
+<button class="btn" onclick="go(1)">Записаться →</button>
+</section>
+
+<section class="s">
+<h2>Какой у тебя уровень? 🏊</h2>
+<div class="opts" data-k="level">
+<button class="opt">🫧 Я только начинаю<small>боюсь воды или не умею плавать</small></button>
+<button class="opt">🐟 Держусь на воде<small>плаваю немного и неуверенно</small></button>
+<button class="opt">🐬 Плыву уверенно<small>хочу поправить технику</small></button>
+<button class="opt">🦈 Опытный пловец<small>хочу скорость и выносливость</small></button>
+</div>
+<button class="btn" data-need="level" onclick="go(2)" disabled>Дальше →</button>
+</section>
+
+<section class="s">
+<h2>Чему хочешь научиться? 🎯</h2>
+<div class="opts two" data-k="goal">
+<button class="opt">🌊 Кроль</button><button class="opt">🐸 Брасс</button>
+<button class="opt">🦋 Баттерфляй</button><button class="opt">🛟 Плавание на спине</button>
+<button class="opt">💨 Дыхание и скорость</button><button class="opt">💪 Выносливость</button>
+<button class="opt">🤿 Нырять и не бояться</button><button class="opt">🧘 Для здоровья и спины</button>
+</div>
+<button class="btn" data-need="goal" onclick="go(3)" disabled>Дальше →</button>
+</section>
+
+<section class="s">
+<h2>Когда тебе удобно? 🗓️</h2>
+<div class="lbl">Дата первого занятия</div>
+<input type="date" id="dt">
+<div class="lbl">Время</div>
+<div class="opts two" data-k="time"><button class="opt">07:00</button><button class="opt">09:00</button><button class="opt">12:00</button><button class="opt">16:00</button><button class="opt">18:00</button><button class="opt">20:00</button></div>
+<div class="lbl">Сколько занятий?</div>
+<div class="opts two" data-k="cnt"><button class="opt">1 пробное</button><button class="opt">4 занятия</button><button class="opt">8 занятий</button><button class="opt">12 занятий</button></div>
+<button class="btn" data-need="time,cnt" onclick="go(4)" disabled>Дальше →</button>
+</section>
+
+<section class="s">
+<h2>Как с тобой связаться? 📲</h2>
+<input id="nm" placeholder="Твоё имя">
+<input id="ph" placeholder="Телефон или @telegram">
+<textarea id="msg" rows="3" placeholder="Пожелания: травмы, страхи, любимый бассейн… 💬"></textarea>
+<button class="btn" onclick="go(5)">Показать запись →</button>
+</section>
+
+<section class="s">
+<div class="hero sw" style="width:min(60vw,220px)"></div>
+<h2>Ты записан(а)! 🎉</h2>
+<div class="sum" id="sum"></div>
+<div class="row"><button class="btn" onclick="cp()">📋 Скопировать</button><button class="btn alt" onclick="tg()">✈️ В Telegram</button></div>
+<p id="ok"></p>
+</section>
+
+<script>
+const S=[...document.querySelectorAll('.s')],A={};
+const SW=`<svg viewBox="0 0 200 90"><g class="leg b"><rect x="8" y="44" width="50" height="8" rx="4" fill="#e7a87e"/></g><g class="leg"><rect x="6" y="48" width="52" height="8" rx="4" fill="#f2b995"/></g>
+<rect x="52" y="38" width="84" height="18" rx="9" fill="#ff5d8f"/><rect x="60" y="38" width="26" height="18" fill="#fff" opacity=".35"/>
+<g class="arm b"><rect x="125" y="42" width="8" height="42" rx="4" fill="#e7a87e"/></g>
+<circle cx="150" cy="44" r="13" fill="#f2b995"/><path d="M137 44a13 13 0 0 1 26 0z" fill="#ffd23f"/><rect x="152" y="43" width="12" height="6" rx="3" fill="#0b3b66"/>
+<g class="arm"><rect x="125" y="42" width="8" height="42" rx="4" fill="#f2b995"/></g>
+<path d="M0 54C20 46 40 62 60 54S100 46 120 54s40 8 80 0v40H0z" fill="#2aa8e0" opacity=".6"/></svg>`;
+document.querySelectorAll('.sw').forEach(e=>e.innerHTML=SW);document.getElementById('sw').innerHTML=SW;
+for(let i=0;i<22;i++){const b=document.createElement('div'),z=6+Math.random()*16;b.className='bub';b.style.cssText=`left:${Math.random()*100}vw;width:${z}px;height:${z}px;animation-duration:${6+Math.random()*9}s;animation-delay:${-Math.random()*12}s`;document.body.append(b)}
+dt.min=new Date().toISOString().slice(0,10);
+function go(n){S.forEach((s,i)=>s.classList.toggle('on',i==n));sw.style.left=`calc(${n/(S.length-1)} * (100% - 64px))`;if(n==5)sum.innerText=txt()}
+function chk(){document.querySelectorAll('[data-need]').forEach(b=>b.disabled=!b.dataset.need.split(',').every(k=>A[k]))}
+document.querySelectorAll('.opts').forEach(g=>g.onclick=e=>{const b=e.target.closest('.opt');if(!b)return;g.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');A[g.dataset.k]=b.firstChild.textContent.trim();chk()});
+function txt(){const d=dt.value?new Date(dt.value).toLocaleDateString('ru',{day:'numeric',month:'long',year:'numeric'}):'дата не выбрана';
+return `Запись на плавание 🏊\n👤 ${nm.value||'—'}  ${ph.value}\n📶 Уровень: ${A.level}\n🎯 Цель: ${A.goal}\n🗓️ Старт: ${d}, ${A.time}\n🔢 Занятий: ${A.cnt}\n💬 ${msg.value||'—'}`}
+function cp(){navigator.clipboard.writeText(txt()).then(()=>ok.textContent='Скопировано! Отправь тренеру 🌊').catch(()=>ok.textContent='Сделай скриншот и отправь тренеру 🌊')}
+function tg(){open('https://t.me/share/url?url=%20&text='+encodeURIComponent(txt()))}
+go(0);
+</script></body></html>
